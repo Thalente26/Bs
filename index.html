@@ -296,25 +296,20 @@
         }
 
         .hero-typing-wrap {
-            min-height: 3.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 32px;
-        }
+    min-height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
         .hero-typing {
-            font-size: 1.25rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.85);
-            letter-spacing: -0.01em;
-            border-right: 2px solid var(--gold-light);
-            padding-right: 6px;
-            animation: blink 0.8s step-end infinite;
-            white-space: nowrap;
-            overflow: hidden;
-            max-width: 100%;
-            text-overflow: ellipsis;
-        }
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    display: inline-block;
+}
         @keyframes blink {
             0%,
             100% {
@@ -527,21 +522,18 @@
 
         /* ---- Banner / PWA Section ---- */
         .banner-section {
-            padding: 80px 24px;
-            background: linear-gradient(180deg, var(--offwhite) 0%, #EDEBE6 100%);
-        }
+    padding: 0; /* Remove padding for true edge-to-edge look */
+    width: 100%;
+    background: var(--navy);
+}
         .banner-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-            aspect-ratio: 21/8;
-            min-height: 320px;
-        }
+    width: 100%;
+    margin: 0;
+    border-radius: 0; /* Square edges edge-to-edge */
+    aspect-ratio: 16/9;
+    min-height: 280px;
+    box-shadow: none;
+}
         .banner-container:hover {
             box-shadow: 0 24px 64px rgba(8, 45, 91, 0.28);
             transform: scale(1.01);
@@ -1410,14 +1402,15 @@
 
             <!-- Large benefit container with overlay text -->
             <div class="benefit-large-container reveal" role="article" aria-label="Community trust benefit">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1800&q=80&auto=format&fit=crop" alt="Community members shaking hands in trust" loading="lazy">
+                <!-- Replace src with your E-Card preview graphic/image -->
+                <img src="YOUR_ECARD_IMAGE_HERE.png" alt="Beyond-Score E-Card Savings and Rewards" loading="lazy">
                 <div class="benefit-large-overlay">
                     <span class="benefit-tag">
                         <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        Community Trust
+                        Coming Soon: The E-Card Programme
                     </span>
-                    <h3>Your community already knows who is reliable. We make that visible.</h3>
-                    <p>Beyond-Score transforms the informal trust your stokvel has built over years into a transparent, portable score that opens doors in the formal economy — without ever losing the human touch.</p>
+                    <h3>Your digital savings, loyalty, and rewards card — sponsored by Beyond-Score.</h3>
+                    <p>We are rolling out an exclusive community card designed to amplify your stokvel purchasing power with built-in rewards and trusted security.</p>
                 </div>
             </div>
         </div>
@@ -1598,67 +1591,60 @@
             }
         });
 
-        // ===== TYPING ANIMATION IN 12 SOUTH AFRICAN LANGUAGES =====
+        // ===== TYPING ANIMATION IN 12 SOUTH AFRICAN LANGUAGES (No language labels) =====
         const taglines = [
-            { text: "Credit scoring for stokvels & burial societies", lang: "English" },
-            { text: "Kredietpunt vir stokvels en begrafnisgenootskappe", lang: "Afrikaans" },
-            { text: "Ukukala isikweletu kwama-stokvel nezinhlangano zomngcwabo", lang: "isiZulu" },
-            { text: "Ukukala ikhredithi kwiistokvel nemibutho yemingcwabo", lang: "isiXhosa" },
-            { text: "Tekolo ya mokoloto bakeng sa di-stokvel le mekga ya ditšebeletso", lang: "Sesotho" },
-            { text: "Tekolo ya sekoloto sa di-stokvel le mekgatlo ya poloko", lang: "Sepedi" },
-            { text: "Tekolo ya sekoloto ya di-stokvel le ditlhopha tsa diphitlho", lang: "Setswana" },
-            { text: "Kuhlola sikweletu ema-stokvel nasemihlanganweni yemngcwabo", lang: "siSwati" },
-            { text: "U linganya zwikweleti zwa zwitokofela na zwiimiswa zwa vhufu", lang: "Tshivenda" },
-            { text: "Ku pima xikweleti eka ti-stokvel na mintlawa ya swihlahla", lang: "Xitsonga" },
-            { text: "Ukuhlola isikweletu sama-stokvel neenhlangano zomngcwabo", lang: "isiNdebele" },
-            { text: "Ukuhlola isikweletu sama-stokvel neenhlangano zomngcwabo", lang: "Southern Ndebele" },
+            "Collective financial strength, Individualised",
+            "Kolektiewe finansiële krag, Geïndividualiseerd",
+            "Amandla ezimali ezidibeneyo, Ngokomntu ngamnye",
+            "Amandla ezimali ahlangeneyo, Ngokwehlukileyo",
+            "Matla a ditjhelete a kopaneng, Ka nqalong",
+            "Matla a ditjhelete a kopaneng, Ka bomotho",
+            "Matla a madi a kopaneng, Ka bomotho",
+            "Mandla emali lahlangene, Ngelizinga ngalinye",
+            "Maano a dzikhelete dzo tanganelaho, Nga muthu nga mudi",
+            "Matimba ya timali leti hlanganyeriweke, Hi un'wana na un'wana",
+            "Amandla wemali ahlangene, Ngamunye ngamunye",
+            "Amandla wemali ahlangene, Ngamunye ngamunye"
         ];
 
         const typingEl = document.getElementById('typingText');
-        const langLabelEl = document.getElementById('languageLabel');
         let currentTaglineIndex = 0;
         let currentCharIndex = 0;
         let isDeleting = false;
-        let typingSpeed = 55;
-        let deletingSpeed = 28;
-        let pauseBetweenTyping = 1800; // pause after full type
-        let pauseBetweenDeleting = 300; // pause after full delete
+        let typingSpeed = 45;
+        let deletingSpeed = 25;
+        let pauseBetweenTyping = 2000; 
 
         function typeEffect() {
-            const current = taglines[currentTaglineIndex];
+            const currentText = taglines[currentTaglineIndex];
 
             if (!isDeleting) {
-                // Typing forward
                 currentCharIndex++;
-                typingEl.textContent = current.text.substring(0, currentCharIndex);
-                langLabelEl.textContent = current.lang;
+                typingEl.textContent = currentText.substring(0, currentCharIndex);
 
-                if (currentCharIndex === current.text.length) {
-                    // Full text typed
+                if (currentCharIndex === currentText.length) {
                     isDeleting = true;
                     setTimeout(typeEffect, pauseBetweenTyping);
                     return;
                 }
                 setTimeout(typeEffect, typingSpeed);
             } else {
-                // Deleting
                 currentCharIndex--;
-                typingEl.textContent = current.text.substring(0, currentCharIndex);
+                typingEl.textContent = currentText.substring(0, currentCharIndex);
 
                 if (currentCharIndex === 0) {
-                    // Fully deleted, move to next language
                     isDeleting = false;
                     currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
-                    setTimeout(typeEffect, pauseBetweenDeleting + 200);
+                    setTimeout(typeEffect, 300);
                     return;
                 }
                 setTimeout(typeEffect, deletingSpeed);
             }
         }
 
-        // Start typing after a short delay
         setTimeout(typeEffect, 600);
 
+        
         // ===== SCROLL REVEAL ANIMATIONS =====
         const revealElements = document.querySelectorAll('.reveal');
         const observerOptions = {
